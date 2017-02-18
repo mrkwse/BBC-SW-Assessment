@@ -5,8 +5,8 @@ class testLife(unittest.TestCase):
 	# Scenario 0,5
 	def test_no_interaction(self):
 		emptyState = [  [0,0,0],
-				[0,0,0],
-				[0,0,0]  ]
+				        [0,0,0],
+				        [0,0,0]  ]
 		testLife = Life()
 		self.assertEqual(emptyState, testLife.evolve(emptyState))
 
