@@ -40,11 +40,11 @@ class testLife(unittest.TestCase):
 	def test_survival(self):
 		startState = [ [0,1,0],
 					   [1,0,1],
-					   [0,1,0] ]
+					   [0,1,1] ]
 
 		endState =   [ [0,1,0],
 					   [1,0,1],
-					   [0,1,0] ]
+					   [0,1,1] ]
 
 		testLife = Life()
 		self.assertEqual(endState, testLife.evolve(startState))
@@ -54,6 +54,7 @@ class testLife(unittest.TestCase):
 		startState = [ [0,1,0],
 					   [1,1,1],
 					   [0,1,0] ]
+
 		endState =   [ [1,1,1],
 					   [1,0,1],
 					   [1,1,1] ]
@@ -74,6 +75,19 @@ class testLife(unittest.TestCase):
 					   [0,0,1,0,0],
 					   [0,0,1,0,0],
 					   [0,0,0,0,0] ]
+
+		testLife = Life()
+		self.assertEqual(nextState, testLife.evolve(startState))
+		self.assertEqual(startState, testLife.evolve(nextState))
+
+	def test_non_square(self):
+		startState = [ [0,0,0,0,0],
+					   [0,1,1,1,0],
+					   [0,0,0,0,0] ]
+
+		nextState =  [ [0,0,1,0,0],
+					   [0,0,1,0,0],
+					   [0,0,1,0,0]]
 
 		testLife = Life()
 		self.assertEqual(nextState, testLife.evolve(startState))

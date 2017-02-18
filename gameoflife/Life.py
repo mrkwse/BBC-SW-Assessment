@@ -6,7 +6,7 @@ class Life(object):
 	def evolve(self,state):
 
 		# Initialize array of arrays of zeroes of equal dimension to states
-		# array.
+		# array for output of novel array.
 		state_out = []
 		for row in state:
 			state_out.append([])
@@ -20,7 +20,7 @@ class Life(object):
 			ccell = 0
 
 			# Iterate through every cell of every row
-			while ccell < len(state):
+			while ccell < len(state[rrow]):
 				state_out[rrow][ccell] = self.setCell(state,[rrow,ccell])
 				ccell += 1
 			rrow += 1
@@ -57,7 +57,6 @@ class Life(object):
 		# if necessary
 		if state[current[0]][current[1]] == 1:
 			neighbours -= 1
-
 
 		# Return evolved state as defined by scenarios
 
